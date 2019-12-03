@@ -26,11 +26,11 @@ class ShoeTable(DeclarativeBase):
 
     id = Column(Integer, primary_key=True)
     title = Column('title', String(200))
-    subtitle = Column('subtitle', String(200), nullable=True)
+    # subtitle = Column('subtitle', String(200), nullable=True)
     price = Column('price', Float(), nullable=False)
     link = Column('link', Text(), nullable=True)
-    image_url = Column('image_url', Text(), nullable=True)
-    source = Column('source', String(20), nullable=False)
+    # image_url = Column('image_url', Text(), nullable=True)
+    seller = Column('source', String(20), nullable=False)
 
 
 row2dict = lambda r: {c.name: str(getattr(r, c.name)) for c in r.__table__.columns}
@@ -44,4 +44,3 @@ result = session.query(ShoeTable).all()
 SHOE_DATA = [row2dict(row) for row in result]
 SHOE_IDS = [d['id'] for d in SHOE_DATA]
 SHOE_TITLES = [d['title'] for d in SHOE_DATA]
-print(SHOE_TITLES)

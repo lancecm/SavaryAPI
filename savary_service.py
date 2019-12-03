@@ -31,10 +31,12 @@ class ShoeByID(Resource):
 
 class ShoeByTitle(Resource):
     def get(self, shoe_title):
+        res = []
         abort_if_shoe_title_doesnt_exist(shoe_title)
         for d in SHOE_DATA:
-            if (d['title'] == shoe_title):
-                return d
+            if (shoe_title in d['title']):
+                res.append(d)
+        return res[:3]
 
 class ShoeList(Resource):
     def get(self):
