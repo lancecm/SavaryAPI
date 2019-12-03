@@ -30,7 +30,7 @@ class ShoeTable(DeclarativeBase):
     price = Column('price', Float(), nullable=False)
     link = Column('link', Text(), nullable=True)
     # image_url = Column('image_url', Text(), nullable=True)
-    seller = Column('source', String(20), nullable=False)
+    source = Column('source', String(20), nullable=False)
 
 
 row2dict = lambda r: {c.name: str(getattr(r, c.name)) for c in r.__table__.columns}
