@@ -31,7 +31,8 @@ class ShoeByTitle(Resource):
         for d in SHOE_DATA:
             if (shoe_title in d['title']):
                 res.append(d)
-        return res[:3]
+        sorted_res = sorted(res, key=lambda i: i['price'])
+        return sorted_res[:3]
 
 class ShoeList(Resource):
     def get(self):
