@@ -44,4 +44,3 @@ result = session.query(ShoeTable).all()
 SHOE_DATA = [row2dict(row) for row in result]
 SHOE_IDS = [d['id'] for d in SHOE_DATA]
 SHOE_TITLES = [d['title'] for d in SHOE_DATA]
-print(SHOE_TITLES)
